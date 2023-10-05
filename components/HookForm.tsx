@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Button } from "antd";
 
 interface Valueinput {
   email: string;
@@ -38,7 +39,7 @@ const HookForm = () => {
       const res = await axios.get(
         `http://localhost:3030/user/checkValue/${value}`
       );
-      return res.data.exisit;
+      return res.data.exists;
     } catch (error) {
       console.log("Error check is value already exists", error);
       return false;
@@ -122,7 +123,7 @@ const HookForm = () => {
           </p>
 
           <div className="pt-10">
-            <button className="button">Submit</button>
+            <Button type="primary">Submit</Button>
           </div>
         </div>
       </form>
